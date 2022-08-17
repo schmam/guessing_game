@@ -3,7 +3,7 @@
 import random
 import sys
 
-user_level = input("Level: ")                                       # the number entered by the user as the upper bound of the number to be guessed
+user_level = input("Level: ")                                       # prompts user to enter a number to be the upper bound of the random number to be guessed
 
 while True:
     if user_level.isnumeric() == True and int(user_level) > 0:
@@ -14,25 +14,17 @@ while True:
         user_level = input("Level: ")                               # if user_level is invalid, re-prompt for input and assign to user_level
         continue
 
-user_guess = input("Guess: ")
-
 while True:
-    try:
-        if user_guess.isnumeric() == True and int(user_guess) > 0:
-            if user_guess == cpu_guess:
-                print("Just right!")
-                sys.exit()                                          # exits once the user guesses the correct number
-            elif user_guess > cpu_guess:
-                print("Too large!")
-                user_guess = int(input("Guess: "))
-                continue
-            elif user_guess < cpu_guess:
-                print("Too small!")
-                user_guess = int(input("Guess: "))
-                continue
-        else:
-            user_guess = input("Level: ")                           # if user_guess is invalid, re-prompt for input and assign to user_guess
+user_guess = input("Guess: ")                                       # prompts user for their first guess
+    if user_guess.isnumeric() == True and int(user_guess) > 0:  # validates guess if a positive number
+        if int(user_guess) == cpu_guess:
+            print("Just right!")
+            sys.exit()                                          # exits once the user guesses the correct number
+        elif int(user_guess) > cpu_guess:
+            print("Too large!")
             continue
-    except ValueError:
-        user_guess = input("Level: ")                               # if user_guess is invalid, re-prompt for input and assign to user_guess
+        elif int(user_guess) < cpu_guess:
+            print("Too small!")
+            continue
+        else:
             continue
