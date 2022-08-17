@@ -15,7 +15,7 @@ while True:
         continue
 
 while True:
-user_guess = input("Guess: ")                                       # prompts user for their first guess
+    user_guess = input("Guess: ")                                       # prompts user for their first guess
     if user_guess.isnumeric() == True and int(user_guess) > 0:  # validates guess if a positive number
         if int(user_guess) == cpu_guess:
             print("Just right!")
